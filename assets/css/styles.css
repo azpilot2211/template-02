@@ -90,6 +90,8 @@
 --ff-semibold: 'intersemibold';
 --ff-thin: 'interthin';
 
+--transition: all 0.3s ease-in-out;
+
 --color-primary: #127765;
 --color-secondary: #435151;
 --color-lt-green: #CEDF98;
@@ -153,6 +155,12 @@ p {
     line-height: 1.6; /* More generous line height for paragraphs */
 }
 
+p, h1, h2, h3, h4, h5, h6{
+    overflow-wrap: break-word;
+    max-width: 75ch;
+    text-wrap: pretty;
+    }
+
 body{
     background-color: #f1f1f1;
     margin: 0;
@@ -199,7 +207,7 @@ header{
     color: var(--color-white);
     text-transform: capitalize;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
 }
 
 .navbar a:hover{
@@ -212,7 +220,7 @@ header{
     padding: .5rem 1rem;
     border-radius: .3rem;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
 }
 
 .navbar .cta:hover{
@@ -263,7 +271,7 @@ header{
     font-family: var(--ff-extrabold);
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
 }
 
 .hero .cta-1:hover{
@@ -292,7 +300,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;   
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
 }
@@ -311,7 +319,7 @@ header{
     align-items: center;
     background: var(--color-primary);
     width: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -347,7 +355,7 @@ header{
     background-size: cover;
     background-position: bottom;
     width: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -409,7 +417,7 @@ section p{
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1.75rem 2rem;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
 }
 
@@ -462,8 +470,7 @@ section p{
 
 .bottom{
     /* background: var(--color-primary); */
-    background: rgb(56,135,59);
-    background: radial-gradient(circle, rgba(56,135,59,0.9878151944371498) 12%, rgba(18,119,101,1) 81%);  
+    background: url(/assets/images/grey_wash_wall.webp);
     min-height: 40rem;
     width: 100%;
     color: var(--color-white);
@@ -498,7 +505,7 @@ section p{
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
     cursor: pointer;
     text-transform: uppercase;
     font-family: var(--ff-extrabold);
@@ -560,7 +567,7 @@ section p{
     background: rgba(0, 0, 0, 0.9);
     color: white;
     transform: translateY(100%);
-    transition: all 0.35s ease;
+    transition: var(--transition);
 }
 
 .bottom-card-01:hover .content{
@@ -593,7 +600,7 @@ section p{
     background: rgba(0, 0, 0, 0.9);
     color: white;
     transform: translateY(100%);
-    transition: all 0.35s ease;
+    transition: var(--transition);
 }
 
 .bottom-card-02:hover .content{
@@ -626,7 +633,7 @@ section p{
     background: rgba(0, 0, 0, 0.9);
     color: white;
     transform: translateY(100%);
-    transition: all 0.35s ease;
+    transition: var(--transition);
 }
 
 .bottom-card-03:hover .content{
@@ -666,7 +673,7 @@ section p{
     outline: 1px solid var(--color-gray);
     text-align: center;
     cursor: pointer;
-    transition: all 0.35s ease;
+    transition: var(--transition);
 }
 
 .customer-card p{
@@ -727,6 +734,55 @@ section p{
     font-family: var(--ff-italic);
 }
 
+.consultation{
+    padding: 4rem 25% 15rem 25%;
+}
+
+.consultation h6{
+    font-size: calc(1rem + 0.728vw); /* 1.728rem */
+    margin-bottom: 0;
+}
+
+.consultation p{
+    margin-bottom: 2rem;
+    margin-top: -.5rem;
+}
+
+.consultation span{
+    color: var(--color-primary);
+}
+
+.consultation form{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.consultation form input{
+    padding: .8rem;
+    border-radius: .3rem;
+    background: none;
+    outline: none;
+    border: 1px solid var(--color-gray);
+}
+
+.consultation form input[type="submit"]{
+    width: fit-content;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.consultation form input[type="submit"]:hover{
+    background: var(--color-white);
+    outline: var(--color-primary);
+    color: var(--color-primary);
+}
+
 footer{
     background: var(--color-primary);
     min-height: 30rem;
@@ -762,7 +818,15 @@ footer{
     gap: 1rem;
 }
 
+.right-footer p{
+    margin-bottom: -.8rem;
+}
+
 .right-footer input[type="submit"], .right-footer input[type="text"]{
     border-radius: .3rem;
     padding: .3rem .5rem;
+}
+
+.right-footer input[type="submit"]{
+    text-transform: uppercase;
 }
