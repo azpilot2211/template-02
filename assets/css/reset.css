@@ -36,6 +36,7 @@ ol[class] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  padding: 1% 5%;
 }
 
 /* Set shorter line heights on headings and interactive elements */

@@ -2,7 +2,9 @@
 --ff-body: 'helvetica-neue-75-bold,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji';
 --ff-paragraph: 'helvetica-neue-55-roman,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji';
 
+interpolation-size: allow-keywords;
 --transition: all 0.3s ease-in-out;
+--transition-fast: all 0.15s ease-in-out;
 
 --color-primary: #127765;
 --color-secondary: #435151;
@@ -27,6 +29,7 @@
         --color-black: hsl(0, 0%, 100%);
         --color-white: hsl(0, 0%, 0%);
         --background: hsl(0, 0%, 23%);
+        --color-gray: hsl(0, 1%, 30%);
     }
 }
 
@@ -86,8 +89,9 @@ p, h1, h2, h3, h4, h5, h6{
     }
 
 body{
-    background-color: #f1f1f1;
+    background-color: var(--background);
     margin: 0;
+    padding: 0;
     font-family: var(--ff-body);
     text-wrap: pretty;
 }
@@ -106,7 +110,6 @@ header{
     justify-content: space-between;
     align-items: center;
     min-height: 1rem;
-    /* background: var(--color-white); */
     padding: 1% 3%;
 }
 
@@ -158,8 +161,11 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    min-height: inherit;
-    padding: 0 10%;
+    min-height: 100vh;
+    min-height: 100svh;
+    /* padding: 0 10%; */
+    padding-inline: min(6vw, 10rem);
+    padding-block: min(4vh, 6rem);
 }
 
 .hero span{
@@ -224,7 +230,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;   
-    transition: var(--transition);
+    transition: var(--transition-fast);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
 }
@@ -243,7 +249,7 @@ header{
     align-items: center;
     background: var(--color-primary);
     width: 100%;
-    transition: var(--transition);
+    transition: var(--transition-fast);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -279,7 +285,7 @@ header{
     background-size: cover;
     background-position: bottom;
     width: 100%;
-    transition: var(--transition);
+    transition: var(--transition-fast);
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -314,7 +320,7 @@ section p{
     width: 100%;
     padding: 3% 10%;
     gap: 2rem;
-    margin: 6rem 0;
+    margin: 6rem 0 2rem 0;
 }
 
 .left-section{
@@ -322,7 +328,7 @@ section p{
 }
 
 .left-section img{
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     width: 100%;
     height: auto;
 }
@@ -335,7 +341,7 @@ section p{
 }
 
 .right-section .card{
-    background: hsl(0, 0%, 88%);
+    background: var(--color-white);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -345,31 +351,32 @@ section p{
     cursor: pointer;
 }
 
+
 @media (hover: hover) {
     .right-section .card:hover{
         background: var(--color-black);
         color: var(--color-white);
     }
-
-    .right-section i{
-        color: var(--color-white);
-    }
 }
 
+/* .right-section .card i{
+    color: var(--color-secondary);
+} */
+
 .right-section .c1{
-    border-radius: 2rem 0 0 0;
+    border-radius: 0.5rem 0 0 0;
 }
 
 .right-section .c2{
-    border-radius: 0 2rem 0 0;
+    border-radius: 0 0.5rem 0 0;
 }
 
 .right-section .c4{
-    border-radius: 0 0 2rem 0;
+    border-radius: 0 0 0.5rem 0;
 }
 
 .right-section .c3{
-    border-radius: 0 0 0 2rem;
+    border-radius: 0 0 0 0.5rem;
 }
 
 .card i{
@@ -394,15 +401,14 @@ section p{
 
 .bottom{
     /* background: var(--color-primary); */
-    background: url(/assets/images/grey_wash_wall.webp);
-    min-height: 40rem;
+    /* background: url(/assets/images/grey_wash_wall.webp); */
+    min-height: fit-content;
     width: 100%;
-    color: var(--color-white);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 4rem 0;
+    padding: 0 0 2rem 0;
 }
 
 .bottom h6{
@@ -412,7 +418,7 @@ section p{
 }
 
 .bottom h6 span{
-    color: var(--color-lt-green);
+    color: var(--color-primary);
 }
 
 .bottom p{
@@ -421,7 +427,7 @@ section p{
 }
 
 .btn{
-    background: var(--color-white);
+    background: var(--color-primary);
     padding: 1rem 2rem;
     max-width: fit-content;
     border-radius: .5rem;
@@ -433,14 +439,14 @@ section p{
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--color-secondary);
+    color: var(--color-white);
     outline: none;
 }
 
 .btn:hover{
-    background: var(--ff-black);
-    color: var(--color-white);
-    outline: 1px solid var(--color-white);
+    background: var(--color-white);
+    outline: 1px solid var(--color-secondary);
+    color: var(--color-primary);
 }
 
 .bottom-section{
@@ -475,7 +481,7 @@ section p{
     background: url("/assets/images/landscape-07.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     min-height: 20rem;
 }
@@ -508,7 +514,7 @@ section p{
     background: url("/assets/images/landscape-08.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     min-height: 20rem;
 }
@@ -541,7 +547,7 @@ section p{
     background: url("/assets/images/landscape-09.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     min-height: 20rem;
 }
@@ -647,12 +653,16 @@ section p{
 }
 
 .question h6{
-    margin-bottom: 1rem;
     color: var(--color-primary);
-    text-decoration: underline;
-    line-height: 1.6;
+    width: fit-content;
+    margin-bottom: -.4rem;
 }
 
+.question h6 span{
+    margin-right: 1rem;
+    color: var(--color-primary);
+    font-size: larger;
+}
 
 .question p{
     font-style: italic;
