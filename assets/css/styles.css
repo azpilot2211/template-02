@@ -2,7 +2,6 @@
 --ff-body: 'helvetica-neue-75-bold,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji';
 --ff-paragraph: 'helvetica-neue-55-roman,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji';
 
-interpolation-size: allow-keywords;
 --transition: all 0.3s ease-in-out;
 --transition-fast: all 0.15s ease-in-out;
 
@@ -13,6 +12,8 @@ interpolation-size: allow-keywords;
 --color-white: hsl(0, 0%, 100%);
 --background: hsl(0, 0%, 95%);
 --color-gray: hsl(0, 2%, 67%);
+--color-hero: hsl(0, 7%, 92%);
+--color-input: #667766;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -25,11 +26,13 @@ interpolation-size: allow-keywords;
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-primary: hsl(207, 56%, 52%);
+        --color-primary: hsl(88, 40%, 65%);
         --color-black: hsl(0, 0%, 100%);
         --color-white: hsl(0, 0%, 0%);
-        --background: hsl(0, 0%, 23%);
+        --background: hsl(0, 0%, 40%);
         --color-gray: hsl(0, 1%, 30%);
+        --color-hero: hsl(0, 7%, 92%);
+        --color-input: #a9c4a9;
     }
 }
 
@@ -114,7 +117,7 @@ header{
 }
 
 .navbar .logo{
-    color: var(--color-white);
+    color: var(--color-hero);
     text-transform: uppercase;
     font-weight: 700;
     font-size: calc(0.8rem + 0.64vw);
@@ -173,7 +176,7 @@ header{
 }
 
 .hero h1{
-    color: var(--color-white);
+    color: var(--color-hero);
     font-weight: 700;
     letter-spacing: -1.9px;
     text-transform: uppercase;
@@ -185,7 +188,7 @@ header{
 }
 
 .hero h2{
-    color: var(--color-white);
+    color: var(--color-hero);
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
     font-weight: 300;
     font-size: calc(1rem + 0.728vw); /* 1.728rem */
@@ -600,7 +603,7 @@ section p{
     min-height: 20rem;
     border-radius: .5rem;
     padding: 2rem;
-    outline: 1px solid var(--color-gray);
+    outline: 1px solid var(--color-black);
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
@@ -608,8 +611,12 @@ section p{
 
 .customer-card p{
     font-style: italic;
-    color: var(--color-gray);
+    color: var(--color-black);
     margin-bottom: 3rem;
+}
+
+.customer-card span{
+    color: var(--color-black);
 }
 
 .avatar{
@@ -628,6 +635,7 @@ section p{
     .customer-card:hover{
         background: var(--color-primary);
         color: var(--color-white);
+        outline: 1px solid var(--color-hero);
     }
 
     .customer-card:hover span{
@@ -697,7 +705,7 @@ section p{
     border-radius: .3rem;
     background: none;
     outline: none;
-    border: 1px solid var(--color-gray);
+    border: 1px solid var(--color-input);
 }
 
 .consultation form input[type="submit"]{
@@ -715,6 +723,10 @@ section p{
     background: var(--color-white);
     outline: var(--color-primary);
     color: var(--color-primary);
+}
+
+.consultation form input:focus{
+    outline: 3px solid greenyellow;
 }
 
 footer{
@@ -759,6 +771,10 @@ footer{
 .right-footer input[type="submit"], .right-footer input[type="text"]{
     border-radius: .3rem;
     padding: .3rem .5rem;
+}
+
+.right-footer input[type="text"]:focus{
+    outline: 3px solid greenyellow;
 }
 
 .right-footer input[type="submit"]{
